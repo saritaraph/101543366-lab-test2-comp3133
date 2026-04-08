@@ -1,0 +1,22 @@
+<h1>Filter by House</h1>
+
+<mat-form-field appearance="fill" class="house-dropdown">
+  <mat-label>Select House</mat-label>
+  <mat-select (selectionChange)="onHouseChange($event.value)">
+    @for (house of houses; track house) {
+      <mat-option [value]="house">{{ house }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+
+<div class="character-grid">
+  @for (character of characters(); track character.id) {
+    <mat-card class="character-card">
+      <img mat-card-image [src]="character.image || 'https://via.placeholder.com/200x250?text=No+Image'">
+      <mat-card-content>
+        <h3>{{ character.name }}</h3>
+        <p>{{ character.house }}</p>
+      </mat-card-content>
+    </mat-card>
+  }
+</div>

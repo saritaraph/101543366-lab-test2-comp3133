@@ -1,0 +1,13 @@
+<div class="character-grid">
+  @for (character of characters(); track character.id) {
+    <a class="card-link" [routerLink]="['/character', character.id]">
+      <mat-card class="character-card">
+        <img mat-card-image [src]="character.image || 'https://via.placeholder.com/200x250?text=No+Image'">
+        <mat-card-content>
+          <h3>{{ character.name }}</h3>
+          <p>{{ character.house || 'No House' }}</p>
+        </mat-card-content>
+      </mat-card>
+    </a>
+  }
+</div>
